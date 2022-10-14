@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { registerValidation } from "./validations/auth.js";
 import checkAuth from "./utils/checkAuth.js";
+import cors from "cors";
 import * as UserController from "./controllers/UserController.js";
 
 mongoose
@@ -14,6 +15,7 @@ mongoose
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/auth/login", UserController.login);
 app.post("/auth/register", registerValidation, UserController.register);

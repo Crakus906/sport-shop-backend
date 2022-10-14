@@ -17,8 +17,10 @@ export const register = async (req, res) => {
     const doc = new UserModel({
       email: req.body.email,
       passwordHash: hash,
-      avatarUrl: req.body.avatarUrl,
-      fullName: req.body.fullName,
+      phoneNumber: req.body.phoneNumber,
+      lastName: req.body.lastName,
+      firstName: req.body.firstName,
+      // avatarUrl: req.body.avatarUrl,
     });
 
     const user = await doc.save();
@@ -50,7 +52,6 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const user = await UserModel.findOne({ email: req.body.email });
-
     if (!user) {
       return res.status(404).json({
         message: "Користувач не знайдений",

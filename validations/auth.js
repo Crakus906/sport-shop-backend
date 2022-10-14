@@ -5,6 +5,8 @@ export const registerValidation = [
   body("password", "Пароль повинен бути мінімум 5 символів").isLength({
     min: 6,
   }),
-  body("fullName", "Ім'я має бути мінімум 3 символа").isLength({ min: 3 }),
-  body("avatarUrl", "Не вірна силка на аватарку").optional().isURL(),
+  body("phoneNumber", "phone number is valid"),
+  body("firstName", "Ім'я має бути мінімум 3 символа").isLength({ min: 3 }),
+  body("lastName", "Ім'я має бути мінімум 3 символа").isLength({ min: 3 }),
+  // body("avatarUrl", "Не вірна силка на аватарку").optional().isURL(),
 ];
