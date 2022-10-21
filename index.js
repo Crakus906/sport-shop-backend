@@ -4,6 +4,7 @@ import { registerValidation } from "./validations/auth.js";
 import checkAuth from "./utils/checkAuth.js";
 import cors from "cors";
 import * as UserController from "./controllers/UserController.js";
+import * as Category from "./controllers/Category.js";
 
 mongoose
   .connect(
@@ -20,6 +21,8 @@ app.use(cors());
 app.post("/auth/login", UserController.login);
 app.post("/auth/register", registerValidation, UserController.register);
 app.get("/auth/me", checkAuth, UserController.getMe);
+
+app.get("/category", Category.getCetegory);
 
 app.listen(4444, (err) => {
   if (err) {

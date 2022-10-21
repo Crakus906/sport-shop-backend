@@ -23,8 +23,13 @@ const UserSchema = new Schema(
       type: String,
       require: true,
     },
-
-    // avatarUrl: String,
+    companyName: {
+      type: String,
+    },
+    seller: {
+      type: Boolean,
+      require: true,
+    },
   },
   {
     timestamps: true,
